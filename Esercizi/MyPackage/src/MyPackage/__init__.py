@@ -1,1 +1,0 @@
-print('Paccetto MyPackage importato correttamente')

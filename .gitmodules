@@ -1,0 +1,3 @@
+[submodule "Esercizi/Git_exercises"]
+	path = Esercizi/Git_exercises
+	url = https://github.com/fturini98/Git_exercises.git

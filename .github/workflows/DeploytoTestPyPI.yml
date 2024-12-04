@@ -1,0 +1,41 @@
+name: Deploy to Test PyPI
+
+on:
+    pull_request:
+        branches:
+            - deployment
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Checkout code
+      uses: actions/checkout@v4
+
+    - name: Set up Python
+      uses: actions/setup-python@v4
+      with:
+       python-version: "3.11.9" 
+
+    - name: Install dependencies
+      run: |
+        python -m pip install --upgrade pip
+        pip install build twine
+
+    - name: Move to the package folder
+      run: |
+        cd Esercizi/BicoccaCoursePython2024
+
+    - name: Build the distribution
+      run: |
+        python -m build
+
+    - name: Deploy to Test PyPI
+      env:
+        TWINE_USERNAME: ${{ secrets.TEST_PYPI_USERNAME }}
+        TWINE_PASSWORD: ${{ secrets.TEST_PYPI_PASSWORD }}
+      run: |
+        twine upload --repository-url https://test.pypi.org/legacy/ dist/*
+
+

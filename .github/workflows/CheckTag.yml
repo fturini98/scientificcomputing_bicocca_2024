@@ -1,0 +1,38 @@
+name: CheckTag
+
+on:
+    pull_request:
+        branches:
+            - deployment
+    push:
+        branches:
+            - Esercizi-FrancescoTurini
+
+jobs:
+  control-version:
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Checkout code
+      uses: actions/checkout@v4
+
+    - name: Verify if the last commit has a tag starting with 'v'
+      run: |
+        echo "Verifying if the last commit has a tag starting with 'v'"
+
+        # Get the tag associated with the last commit (if any)
+        last_commit_tag=$(git tag --contains HEAD)
+
+        # Check if the commit has a tag
+        if [ -z "$last_commit_tag" ]; then
+          echo "Error: The last commit does not have any tag."
+          exit 1
+        fi
+
+        # Check if the tag starts with 'v'
+        if [[ $last_commit_tag =~ ^v ]]; then
+          echo "The last commit is tagged with a version starting with 'v': $last_commit_tag"
+        else
+          echo "Error: The last commit's tag does not start with 'v'."
+          exit 1
+        fi

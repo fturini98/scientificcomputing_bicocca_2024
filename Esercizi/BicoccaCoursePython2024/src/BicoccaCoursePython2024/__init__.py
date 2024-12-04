@@ -1,0 +1,1 @@
+print('Paccetto BicoccaCoursePython2024 importato correttamente')

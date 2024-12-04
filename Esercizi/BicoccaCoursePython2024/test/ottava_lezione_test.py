@@ -3,13 +3,13 @@ import re
 import numpy as np
 import pytest
 
-from MyPackage.seconda_lezione import Game_life
+from BicoccaCoursePython2024.seconda_lezione import Game_life
 
-class TestMyPackage:
+class TestBicoccaCoursePython2024:
     def test_hello(self):
         print('Hello')
     
-    @pytest.mark.parametrize("relative_path", ["Esercizi/MyPackage"]) 
+    @pytest.mark.parametrize("relative_path", ["Esercizi/BicoccaCoursePython2024"]) 
     def test_np_power(self, relative_path):
         """
         Checks if there is an incorrect usage of `np.power(10.` without a decimal point 
@@ -75,7 +75,7 @@ class TestMyPackage:
         '''
         life=Game_life()
         
-        direc='Esercizi/MyPackage/test/'
+        direc='Esercizi/BicoccaCoursePython2024/test/'
         
         snap10=np.load(direc+'PoP10_GameOfLife.npy')
         

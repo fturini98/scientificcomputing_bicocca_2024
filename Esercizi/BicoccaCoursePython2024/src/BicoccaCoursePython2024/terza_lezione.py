@@ -1,7 +1,7 @@
 import numpy as np
 import matplotlib.pyplot as plt
 from matplotlib.animation import FuncAnimation
-from MyPackage.seconda_lezione import Game_life
+from BicoccaCoursePython2024.seconda_lezione import Game_life
 class figure():
     
     def __init__(self):

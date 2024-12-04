@@ -18,17 +18,17 @@ jobs:
       with:
        python-version: "3.11.9" 
 
-    - name: Move to the package folder
-      run: |
-         cd Esercizi/BicoccaCoursePython2024
+
 
     - name: Install dependencies
       run: |
+        cd Esercizi/BicoccaCoursePython2024
         pip install -e .
         pip install build twine
 
     - name: Build the distribution
       run: |
+        cd Esercizi/BicoccaCoursePython2024
         python -m build
 
     - name: Deploy to Test PyPI
@@ -36,6 +36,7 @@ jobs:
         TWINE_USERNAME: ${{ secrets.TEST_PYPI_USERNAME }}
         TWINE_PASSWORD: ${{ secrets.TEST_PYPI_PASSWORD }}
       run: |
+        cd Esercizi/BicoccaCoursePython2024
         twine upload --repository-url https://test.pypi.org/legacy/ dist/*
 
 

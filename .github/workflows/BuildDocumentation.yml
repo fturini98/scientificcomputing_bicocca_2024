@@ -20,19 +20,10 @@ jobs:
         uses: actions/setup-python@v4
         with:
          python-version: "3.11.9" 
-
-      - name: Move to the package directory
-        run: |
-           cd Esercizi/BicoccaCoursePython2024
-           ls
-      
-      - name: Upgrade pip
-        run: |
-          python -m pip install --upgrade pip
-          
+           
       - name: Install dependencies
         run: |
-          ls
+          cd Esercizi/BicoccaCoursePython2024
           pip install -e .
           pip install -r requirements.txt
           pip install sphinx sphinx_rtd_theme
@@ -40,6 +31,7 @@ jobs:
 
       - name: Build the documentation
         run: |
+          cd Esercizi/BicoccaCoursePython2024
           cd docs
           sphinx-build -b html . _build/html
 
@@ -47,5 +39,5 @@ jobs:
         uses: peaceiris/actions-gh-pages@v3
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }} 
-          publish_dir: ./docs/_build/html  # Indica la directory da pubblicare
-          publish_branch: gh-pages  # Branch di destinazione per GitHub Pages
+          publish_dir: ./docs/_build/html  # Indicate the dicrectory for the publishing
+          publish_branch: gh-pages  # Destination Branch for GitHub pages

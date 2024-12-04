@@ -1,0 +1,44 @@
+name: Build and Deploy Documentation
+
+on:
+  push:
+    branches:
+      - Esercizi-FrancescoTurini
+  pull_request:
+    branches:
+      - Esercizi-FrancescoTurini
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+        
+      - name: Set up Python
+        uses: actions/setup-python@v4
+        with:
+        python-version: "3.11.9" 
+
+      - name: Install dependencies
+        run: |
+          python -m pip install --upgrade pip
+          pip install -r requirements.txt
+          pip install sphinx sphinx_rtd_theme
+            
+      - name: Move to the package directory
+        run: |
+          cd Esercizi/BicoccaCoursePython2024
+
+      - name: Build the documentation
+        run: |
+          cd docs
+          sphinx-build -b html . _build/html
+
+      - name: Deploy to GitHub Pages
+        uses: peaceiris/actions-gh-pages@v3
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }} 
+          publish_dir: ./docs/_build/html  # Indica la directory da pubblicare
+          publish_branch: gh-pages  # Branch di destinazione per GitHub Pages

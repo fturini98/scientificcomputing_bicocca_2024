@@ -24,6 +24,7 @@ jobs:
       - name: Move to the package directory
         run: |
            cd Esercizi/BicoccaCoursePython2024
+           ls
 
       - name: Install dependencies
         run: |

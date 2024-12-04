@@ -1,4 +1,4 @@
-name: Deploy to Test PyPI
+name: Deploy_to_Test_PyPI
 
 on:
     pull_request:

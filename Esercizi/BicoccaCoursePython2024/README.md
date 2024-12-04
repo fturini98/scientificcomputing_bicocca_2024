@@ -1,5 +1,13 @@
+![Latest Documentation](https://img.shields.io/github/workflow/status/fturini98/scientificcomputing_bicocca_2024/BuildDocumentation)
+
+![Test](https://img.shields.io/github/workflow/status/fturini98/scientificcomputing_bicocca_2024/TestBicoccaCoursePython2024)
+
 # BicoccaCoursePython2024
 Python package to solve the exercices of the Bicocca's phD python course.
+
+***Documentation avaiable*** [here](https://fturini98.github.io/scientificcomputing_bicocca_2024
+)
+
 The python package as a module for each lesson:
 - Lesson 01 module ([prima_lezione](#prima_lezione))
 - Lesson 02 module ([seconda_lezione](#seconda_lezione))

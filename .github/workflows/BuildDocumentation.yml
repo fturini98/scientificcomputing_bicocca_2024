@@ -25,9 +25,14 @@ jobs:
         run: |
            cd Esercizi/BicoccaCoursePython2024
            ls
-
+      
+      - name: Upgrade pip
+        run: |
+          python -m pip install --upgrade pip
+          
       - name: Install dependencies
         run: |
+          ls
           pip install -e .
           pip install -r requirements.txt
           pip install sphinx sphinx_rtd_theme

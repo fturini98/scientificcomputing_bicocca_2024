@@ -1,5 +1,5 @@
 name: Test Lezione8
-run-name: Test on MyPackage
+run-name: Test on BicoccaCoursePython2024
 on:
   push:
     branches:
@@ -10,7 +10,7 @@ on:
       - main
 
 jobs:
-  TestMyPackage:
+  TestBicoccaCoursePython2024:
     runs-on: ubuntu-latest
     steps:
       - name: Check out the repository
@@ -26,11 +26,11 @@ jobs:
           python -m pip install --upgrade pip
           pip install pytest numpy
             
-      - name: Install MyPackage
+      - name: Install BicoccaCoursePython2024
         run: |
-          cd Esercizi/MyPackage
+          cd Esercizi/BicoccaCoursePython2024
           pip install -e .
           cd ../..
 
-      - name: Run pytest on MyPackage
-        run: pytest Esercizi/MyPackage
+      - name: Run pytest on BicoccaCoursePython2024
+        run: pytest Esercizi/BicoccaCoursePython2024

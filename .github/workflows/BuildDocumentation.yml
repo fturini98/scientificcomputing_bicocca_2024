@@ -25,7 +25,6 @@ jobs:
         run: |
           cd Esercizi/BicoccaCoursePython2024
           pip install -e .
-          pip install -r requirements.txt
           pip install sphinx sphinx_rtd_theme
 
 

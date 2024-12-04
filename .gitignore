@@ -1,3 +1,5 @@
+*.prof
+/__pychache__
 *.log
 *.aux
 *.pyc

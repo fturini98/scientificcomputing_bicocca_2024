@@ -60,18 +60,36 @@ class Game_life():
     
 if __name__=="__main__":
     life=Game_life()
-    
-    def update(frame):
-        life.next_gen()  # Calcola la prossima generazione
-        mat.set_array(life.grid)  # Aggiorna la matrice visualizzata
-        return [mat]
-    
-    # Creazione della figura
-    fig, ax = plt.subplots()
-    mat = ax.matshow(life.grid, cmap="gray")
-    ax.axis("off")  # Rimuove gli assi per un aspetto più pulito
+    print('Si')
+    animate=True
+    if animate:
+        def update(frame):
+            life.next_gen()  
+            mat.set_array(life.grid)  
+            return [mat]
+        
 
-    # Animazione
-    ani = FuncAnimation(fig, update, frames=1000, interval=1500, blit=True)
+        fig, ax = plt.subplots()
+        mat = ax.matshow(life.grid, cmap="gray")
+        ax.axis("off") 
 
-    plt.show()
+
+        ani = FuncAnimation(fig, update, frames=1000, interval=1500, blit=True)
+
+        plt.show()
+    else:#For run this don't use Vscode shell, it dosen't work
+        for i in range(0,10):
+            #Generate a snapshot of the 10 pop
+            life.next_gen()
+        snap10=life.grid
+        print(snap10)
+        try:
+            # Salviamo lo snapshot della griglia
+            snap10 = life.grid
+            np.save('../../test/PoP10_GameOfLife.npy', snap10)
+            print("Snapshot salvato correttamente.")
+            
+        except Exception as e:
+            # Stampa l'errore se c'è un'eccezione
+            print(f"Errore durante il salvataggio del file: {e}")
+            

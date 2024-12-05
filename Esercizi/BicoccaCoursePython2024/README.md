@@ -1,4 +1,4 @@
-[![Documentation](https://img.shields.io/badge/docs-published-brightgreen)](https://fturini98.github.io/scientificcomputing_bicocca_2024)
+[![Documentation](https://img.shields.io/badge/docs-published-brightgreen?label=Documentation)](https://fturini98.github.io/scientificcomputing_bicocca_2024)
 
 ![Latest Documentation](https://img.shields.io/github/actions/workflow/status/fturini98/scientificcomputing_bicocca_2024/BuildDocumentation.yml?label=Latest%20Documentation)
 

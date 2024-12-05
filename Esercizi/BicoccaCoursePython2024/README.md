@@ -1,9 +1,9 @@
 [![Documentation](https://img.shields.io/badge/docs-published-brightgreen)](https://fturini98.github.io/scientificcomputing_bicocca_2024)
 
-![Latest Documentation](https://img.shields.io/github/actions/workflow/status/fturini98/scientificcomputing_bicocca_2024/BuildDocumentation.yml)
+![Latest Documentation](https://img.shields.io/github/actions/workflow/status/fturini98/scientificcomputing_bicocca_2024/BuildDocumentation.yml?label=Latest%20Documentation)
 
 
-![Test](https://img.shields.io/github/actions/workflow/status/fturini98/scientificcomputing_bicocca_2024/Lezione8_tests.yml)
+![Tests Passed](https://img.shields.io/github/actions/workflow/status/fturini98/scientificcomputing_bicocca_2024/Lezione8_tests.yml?label=Tests%20Passed)
 
 
 # BicoccaCoursePython2024

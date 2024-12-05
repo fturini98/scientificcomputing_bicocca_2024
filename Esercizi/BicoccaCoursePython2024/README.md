@@ -1,6 +1,10 @@
-![Latest Documentation](https://img.shields.io/github/workflow/status/fturini98/scientificcomputing_bicocca_2024/BuildDocumentation)
+[![Documentation](https://img.shields.io/badge/docs-published-brightgreen)](https://fturini98.github.io/scientificcomputing_bicocca_2024)
 
-![Test](https://img.shields.io/github/workflow/status/fturini98/scientificcomputing_bicocca_2024/TestBicoccaCoursePython2024)
+![Latest Documentation](https://img.shields.io/github/actions/workflow/status/fturini98/scientificcomputing_bicocca_2024/BuildDocumentation.yml)
+
+
+![Test](https://img.shields.io/github/actions/workflow/status/fturini98/scientificcomputing_bicocca_2024/Lezione8_tests.yml)
+
 
 # BicoccaCoursePython2024
 Python package to solve the exercices of the Bicocca's phD python course.
@@ -78,3 +82,8 @@ To pull to this branch is necessary to pass the following actions:
 - [Test Lezione8](../../.github/workflows/Lezione8_tests.yml): makes all the tests for the package.
 
 - [CheckTag](../../.github/workflows/ControlTag.yml): Check that the current verision has a tag. 
+
+## Documentation
+```
+?branch=<branch name>
+```

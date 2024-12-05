@@ -35,8 +35,8 @@ jobs:
           sphinx-build -b html . _build/html
 
       - name: Deploy to GitHub Pages
-        uses: peaceiris/actions-gh-pages@v3
+        uses: peaceiris/actions-gh-pages@v4
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }} 
-          publish_dir: ./docs/_build/html  # Indicate the dicrectory for the publishing
+          publish_dir: Esercizi/BicoccaCoursePython2024/docs/_build/html  # Indicate the dicrectory for the publishing
           publish_branch: gh-pages  # Destination Branch for GitHub pages

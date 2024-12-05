@@ -1,5 +1,7 @@
 name: CheckTag
 
+run-name: Check tag version
+
 on:
     pull_request:
         branches:

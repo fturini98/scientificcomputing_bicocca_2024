@@ -1,5 +1,7 @@
 name: BuildDocumentation
 
+run-name: Build documentation
+
 on:
   pull_request:
     branches:

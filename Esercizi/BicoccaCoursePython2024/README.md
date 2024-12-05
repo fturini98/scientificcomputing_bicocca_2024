@@ -5,6 +5,10 @@
 
 # BicoccaCoursePython2024
 Python package to solve the exercices of the Bicocca's phD python course.
+**Download and Install**:
+```
+pip install --index-url https://test.pypi.org/simple/ BicoccaCoursePython2024
+```
 
 ***Documentation avaiable*** [here](https://fturini98.github.io/scientificcomputing_bicocca_2024
 )
@@ -16,7 +20,7 @@ The python package as a module for each lesson:
 - Lesson 04 module ([quarta_lezione](#quarta_lezione))
 - [Lesson 08](#lesson-08) has no module (test, and package deployment)
 
-
+# Modules
 ## prima_lezione
 
 ## seconda_lezione
@@ -30,7 +34,7 @@ The python package as a module for each lesson:
 The last lesson is about building a package and then **testing** and deploying it.  
 I've completed the exercises related to:  
 - the tests (**Q2: My own test**)  
-- and the deployment (**Q1: I love pip**)
+- the deployment (**Q1: I love pip**)
 
 ### Tests' Exercise (Q2: My own test)
 
@@ -48,7 +52,7 @@ For the test exercise, I wrote a class ([TestBicoccaCoursePython2024](test/ottav
 
 After that, through the GitHub actions ([Lezione8_tests.yml](../../.github/workflows/Lezione8_tests.yml)), I manage continuous integration to ensure that the code passes the tests with every push. If the code doesn't pass the tests, it's not possible to create a pull request on GitHub's main branch (which is protected by the rules set on the site).
 
-### Deployment
+### Deployment (Q1: I love pip)
 
 Since the package is built using a *project.toml* and a *setup.cfg* file, deploying it is straightforward:
 
@@ -58,18 +62,18 @@ Since the package is built using a *project.toml* and a *setup.cfg* file, deploy
     ```
 
 - Build the package's distribution in its directory:
-   ```
+   ```bash
    python -m build
    ```
 
 - Deploy to the [test pypi](https://test.pypi.org/project/BicoccaCoursePython2024/) site
 
-    ```
+    ```bash
     twine upload --repository-url https://test.pypi.org/legacy/ dist/* -u __token__ -p <pypitest-token>
     ```
 Now the package is avaiable [here](https://test.pypi.org/project/BicoccaCoursePython2024/), and it's possible to install it with:
 
-```
+```bash
 pip install --index-url https://test.pypi.org/simple/ BicoccaCoursePython2024
 ```
 
@@ -78,9 +82,94 @@ Since the package is still in development, I manage deployment through continuou
 To pull to this branch is necessary to pass the following actions:
 - [Test Lezione8](../../.github/workflows/Lezione8_tests.yml): makes all the tests for the package.
 
-- [CheckTag](../../.github/workflows/ControlTag.yml): Check that the current verision has a tag. 
+- [CheckTag](../../.github/workflows/CheckTag.yml): Check that the current verision has a tag.
+
+The workflow that manage this is defined in [DeploytoTestPyPI.yml](../../.github/workflows/DeploytoTestPyPI.yml).
+To make work it properly it's necessary to add the API token of Test PyPI in the GitHub secrets as follow:
+
+- The **TEST_PYPI_USERNAME**= \__token__
+- The **TEST_PYPI_PASSWORD**= \<Test PyPi Token>
+
+***Note***:
+ Because the actions' steps are done as if they are in separate shell, is important to move the current directory for each step.
 
 ## Documentation
+An additional feature that I added to this package is the documentation. The documentation is generated with **sphinx** package to make it more easily.
+
+### First initialization
+To use **sphinx** is necessary to install it with:
+```bash
+pip install sphinx
 ```
-?branch=<branch name>
+if one want to use the read the docs theme is necessary also to install it:
+```bash
+pip install sphinx-rtd-theme
 ```
+After that in the main folder of the project create the **doc** folder with:
+```bash
+sphinx-quickstart
+```
+- ***Note***:
+Choose the option **NO** for the *Separate source and build directories* question.
+
+This generate the necessary files for making sphinx work properly.
+#### Modify the conf.py file
+Is possible to modify some sphinx configuration in the [conf.py](./docs/conf.py) file to activate several features:
+-   For the  read the docs theme
+    ```python
+       html_theme = 'sphinx_rtd_theme'
+    ```
+- For the autodoc extension
+    ```python
+    extensions = [
+    'sphinx.ext.autodoc',
+    'sphinx.ext.napoleon',
+    ]
+    ```
+- To ensure that sphinx find the right folder:
+    ```python
+    import os
+    import sys
+    sys.path.insert(0, os.path.abspath('../src'))# Add the main directory project to the path
+    ```
+
+#### Generate the restructured text file
+Sphinx to generate the documentation uses the ***rst*** files. Te first time is possible to generate a rst file for each module using simply: 
+```bash
+sphinx-apidoc -o docs -F --separate <src/package_name folder>
+```
+#### Build the html pages
+To build the effective html pages one must call in the *doc* folder:
+- for Linux
+    ```bash
+    ./make html
+    ```
+- for Windows:
+    ```bash
+    ./make.bat html
+    ```
+
+
+
+### Documentation with continuos integration
+Because the file are changed for every commit, is usefull to build the documentation trought the continuos integration.
+I've done that using the [BuildDocumentation](../../.github/workflows/BuildDocumentation.yml) workflow. This build the documentation for each deployed version of the package and make it aviable on the **GitHub pages** of the repository.
+
+***Note***: To activate the url of the pages is important to go to the GitHub's settings/pages and select the branch responsable of the documentation.
+
+After that the documetation will be aviabel at:
+```bash
+    https://<GitHub-user>.github.io/<GitHub-repository-name>
+```
+### Badges
+It's possible to show the badges in the README.md for the documentation and the single workflow status.
+Is possible to personalize the badge as follow:
+- Choose the branch on wich check toe workflow status add to the url:
+    ```bash
+    ?branch=<branch name>
+    ```
+- Choose the label of the badge:
+    ```bash
+    ?label=<branch name>
+    ```
+***Note:*** The space in the url are substituted with **%20**

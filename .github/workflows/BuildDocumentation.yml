@@ -1,12 +1,9 @@
 name: BuildDocumentation
 
 on:
-  push:
-    branches:
-      - Esercizi-FrancescoTurini
   pull_request:
     branches:
-      - Esercizi-FrancescoTurini
+      - deployment
 
 jobs:
   build:

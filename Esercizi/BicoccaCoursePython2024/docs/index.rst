@@ -1,7 +1,7 @@
 .. BicoccaCoursePython2024 documentation master file
 
 Welcome to BicoccaCoursePython2024's documentation!
-====================================================
+===================================================
 
 .. toctree::
    :maxdepth: 2

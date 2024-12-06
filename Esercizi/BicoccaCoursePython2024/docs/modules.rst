@@ -1,3 +1,6 @@
+BicoccaCoursePython2024
+=======================
+
 .. toctree::
    :maxdepth: 4
    :caption: Module Contents:
@@ -6,3 +9,5 @@
    BicoccaCoursePython2024.seconda_lezione
    BicoccaCoursePython2024.terza_lezione
    BicoccaCoursePython2024.quarta_lezione
+   BicoccaCoursePython2024.Lesson_08
+   BicoccaCoursePython2024.Documentation

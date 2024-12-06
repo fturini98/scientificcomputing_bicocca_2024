@@ -148,6 +148,12 @@ To build the effective html pages one must call in the *doc* folder:
     ```bash
     ./make.bat html
     ```
+If had already build the documentation, and you want to generate a new version, is usefull to clean up the buil by:
+```
+./make.bat clean
+```
+
+this is because some times sphinx dosen't create the new build for the pages that are not modified and this could generate some problems with the index.
 
 
 

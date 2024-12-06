@@ -1,0 +1,42 @@
+name: BuildDocumentation
+
+run-name: Build documentation
+
+on:
+  pull_request:
+    branches:
+      - deployment
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+        
+      - name: Set up Python
+        uses: actions/setup-python@v4
+        with:
+         python-version: "3.11.9" 
+           
+      - name: Install dependencies
+        run: |
+          cd Esercizi/BicoccaCoursePython2024
+          pip install -e .
+          pip install sphinx sphinx_rtd_theme
+
+
+      - name: Build the documentation
+        run: |
+          cd Esercizi/BicoccaCoursePython2024
+          cd docs
+          sphinx-build -b html . _build/html
+
+      - name: Deploy to GitHub Pages
+        uses: peaceiris/actions-gh-pages@v4
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }} 
+          publish_dir: Esercizi/BicoccaCoursePython2024/docs/_build/html  # Indicate the dicrectory for the publishing
+          publish_branch: gh-pages  # Destination Branch for GitHub pages
+          force_orphan: true

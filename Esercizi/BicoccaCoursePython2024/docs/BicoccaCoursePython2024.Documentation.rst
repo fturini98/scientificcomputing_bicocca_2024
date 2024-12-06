@@ -58,6 +58,34 @@ It is possible to modify some Sphinx configurations in the `conf.py <https://git
     import sys
     sys.path.insert(0, os.path.abspath('../src'))  # Add the main project directory to the path
 
+- To add the link to the source code:
+
+  .. code-block:: python
+
+    extensions = [
+        'sphinx.ext.viewcode',
+    ]
+
+- To add the GitHub button in the html page:
+
+  .. code-block:: python
+
+        html_theme_options = {
+        'navigation_depth': 4,
+        'collapse_navigation': False,
+        'sticky_navigation': True,
+        'style_external_links': True,
+    }
+
+    # -- Add GitHub link in the footer -------------------------------------------
+    html_context = {
+        'display_github': True,  #Show GitHub button
+        'github_user': 'fturini98',  # GitHub username
+        'github_repo': 'scientificcomputing_bicocca_2024',  # repositoriy name
+        'github_version': 'deployment',  # Branch )
+        'conf_py_path': '/Esercizi/BicoccaCoursePython2024/docs/',  # Path to doc folder
+    }
+
 Generate the Restructured Text File
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 

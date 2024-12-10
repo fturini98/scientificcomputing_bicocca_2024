@@ -1,4 +1,4 @@
-name: Test Lezione8
+name: Test_Lezione8
 run-name: Test on BicoccaCoursePython2024
 on:
   push:
@@ -8,6 +8,7 @@ on:
   pull_request:
     branches:
       - main
+      - deployment
 
 jobs:
   TestBicoccaCoursePython2024:

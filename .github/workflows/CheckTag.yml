@@ -1,12 +1,11 @@
 name: CheckTag
 
+run-name: Check tag version
+
 on:
-    pull_request:
-        branches:
-            - deployment
     push:
         branches:
-            - Esercizi-FrancescoTurini
+            - deployment
 
 jobs:
   control-version:

@@ -1,3 +1,6 @@
+_static
+_templates
+
 dist/
 .pytest_cache/
 __pychache__/

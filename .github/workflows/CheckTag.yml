@@ -3,9 +3,7 @@ name: CheckTag
 run-name: Check tag version
 
 on:
-    push:
-        branches:
-            - deployment
+  workflow_dispatch:
 
 jobs:
   control-version:

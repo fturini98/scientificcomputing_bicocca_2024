@@ -29,8 +29,8 @@ jobs:
       - name: Install dependencies
         run: |
           cd Esercizi/BicoccaCoursePython2024
-          pip install --no-cache-dir -e .
-          pip install --no-cache-dir sphinx sphinx_rtd_theme nbsphinx
+          pip install --break-system-packages -e .
+          pip install --break-system-packages sphinx sphinx_rtd_theme nbsphinx
 
 
       - name: Build the documentation

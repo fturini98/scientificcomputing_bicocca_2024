@@ -16,7 +16,8 @@ jobs:
   build:
     runs-on: ubuntu-latest
     container:
-      image: pandoc/latex:latest
+      image: dalibo/pandocker:stable
+      options: --user $(id -u):$(id -g) 
 
 
     steps:

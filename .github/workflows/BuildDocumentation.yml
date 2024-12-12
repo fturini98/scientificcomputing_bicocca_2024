@@ -15,7 +15,10 @@ on:
 jobs:
   build:
     runs-on: ubuntu-latest
+    container:
+      image: pandoc/latex:latest
 
+      
     steps:
       - name: Checkout code
         uses: actions/checkout@v4
@@ -29,7 +32,6 @@ jobs:
         run: |
           cd Esercizi/BicoccaCoursePython2024
           pip install -e .
-          pip install pypandoc
           pip install sphinx sphinx_rtd_theme nbsphinx
 
 

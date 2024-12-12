@@ -66,6 +66,36 @@ It is possible to modify some Sphinx configurations in the `conf.py <https://git
         'sphinx.ext.viewcode',
     ]
 
+- To have the jupyter notebook included in the documentation via toctree:
+  
+  - install `Pandoc <https://pandoc.org>`_
+
+  - install with pip the nbsphinx extension:
+
+    .. code-block:: python
+
+      pip install nbsphinx
+
+  - Add the sphinx extension to the conf.py file:
+
+    .. code-block:: python
+
+        extensions = [
+        'nbsphinx', # For including jupyter notebook
+        ]
+
+        nbsphinx_execute = 'never'
+
+        nbsphinx_allow_errors = True
+  
+  .. note::
+
+      To make the nbsphinx extension work properly, you must create a symbolic link
+      inside the docs folder for the jupyter notebook.
+      In the case of the GitHub workflow I manage it by adding a **ln -s** command in the yml file. While for
+      building it locally the standard `make.bat <https://github.com/fturini98/scientificcomputing_bicocca_2024/tree/deployment/Esercizi/BicoccaCoursePython2024/docs/make.bat>`_ file was modified
+        
+
 - To add the GitHub button in the html page:
 
   .. code-block:: python
@@ -129,7 +159,7 @@ This is done using the `BuildDocumentation workflow <https://github.com/fturini9
 
 This workflow builds the documentation for each deployed version of the package and makes it available on the **GitHub Pages** of the repository.
 
-**Note**: To activate the URL for the pages, go to the GitHub's settings under "Pages" and select the branch responsible for the documentation.
+.. note:: To activate the URL for the pages, go to the GitHub's settings under "Pages" and select the branch responsible for the documentation.
 
 After that, the documentation will be available at:
 
@@ -155,4 +185,4 @@ Badges can be personalized as follows:
 
     ?label=<branch name>
 
-**Note**: Spaces in the URL are replaced with **%20**.
+.. note:: Spaces in the URL are replaced with **%20**.

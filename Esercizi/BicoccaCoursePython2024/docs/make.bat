@@ -2,6 +2,12 @@
 
 pushd %~dp0
 
+REM Create symbolic links
+if exist "SolvedExercises" (
+  rmdir /S /Q "SolvedExercises" >nul 2>nul
+)
+mklink /J "SolvedExercises" "..\..\SolvedExercises"
+
 REM Command file for Sphinx documentation
 
 if "%SPHINXBUILD%" == "" (

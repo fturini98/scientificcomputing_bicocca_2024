@@ -63,14 +63,13 @@ Now the package is available `here <https://test.pypi.org/project/BicoccaCourseP
 Deployment to Test PyPI with Continuous Integration
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-Since the package is still in development, I manage deployment through continuous integration after a pull request to the **deployment** branch.  
-To pull to this branch, it is necessary to pass the following actions:
+Since the package is still in development, I manage deployment through continuous integration.
+It's possible to deploy it using a   **workflow_dispatch** on GitHub.
 
-- `Test Lezione8 <https://github.com/fturini98/scientificcomputing_bicocca_2024/tree/deployment/.github/workflows/Lezione8_tests.yml>`_: Ensures that all tests for the package pass.
+ .. note::
+    To enable the possibility of activate manually the deployment workfolw it's mandatory that the relative file yml is on the main branch.
 
-- `CheckTag <https://github.com/fturini98/scientificcomputing_bicocca_2024/tree/deployment/.github/workflows/CheckTag.yml>`_: Verifies that the current version has a tag.
-
-The workflow that manages this is defined in `DeploytoTestPyPI.yml <https://github.com/fturini98/scientificcomputing_bicocca_2024/tree/deployment/.github/workflows/DeploytoTestPyPI.yml>`_.  
+The workflow that manages the deployment is defined in `DeploytoTestPyPI.yml <https://github.com/fturini98/scientificcomputing_bicocca_2024/tree/deployment/.github/workflows/DeploytoTestPyPI.yml>`_.  
 To make it work properly, it is necessary to add the API token of Test PyPI in the GitHub secrets as follows:
 
 - **TEST_PYPI_USERNAME**: ``__token__``

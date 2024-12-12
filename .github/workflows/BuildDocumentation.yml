@@ -8,6 +8,10 @@ on:
       - deployment
   workflow_dispatch:
 
+  push:
+    branches:
+      - Esercizi-FrancescoTurini
+
 jobs:
   build:
     runs-on: ubuntu-latest

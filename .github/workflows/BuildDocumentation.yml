@@ -24,12 +24,8 @@ jobs:
     steps:
       - name: Checkout code
         uses: actions/checkout@v4
-        
-      - name: Checkout the submodules(Git_Exercises repo)
-        run: |
-          git config --global --add safe.directory /__w/scientificcomputing_bicocca_2024/scientificcomputing_bicocca_2024
-          git submodule init
-          git submodule update
+        with:
+          submodules: true
 
       - name: Check Python version
         run: python --version 

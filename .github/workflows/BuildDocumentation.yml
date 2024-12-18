@@ -7,10 +7,6 @@ on:
     branches:
       - deployment
 
-  push:
-    branches:
-      - Esercizi-FrancescoTurini
-
   workflow_dispatch:
 
 

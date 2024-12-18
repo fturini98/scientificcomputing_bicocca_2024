@@ -27,8 +27,8 @@ jobs:
         with:
           submodules: true
       
-      - name: List submodules
-        run: git submodule status
+      - name: Find yml
+        run: ls Esercizi/Git_exercises/.github/workflows
 
       - name: Check Python version
         run: python --version 

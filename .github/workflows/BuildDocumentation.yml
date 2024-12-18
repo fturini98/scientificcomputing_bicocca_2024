@@ -10,7 +10,7 @@ on:
   push:
     branches:
       - Esercizi-FrancescoTurini
-      
+
   workflow_dispatch:
 
 
@@ -27,6 +27,7 @@ jobs:
         
       - name: Checkout the submodules(Git_Exercises repo)
         run: |
+          git config --global --add safe.directory /__w/scientificcomputing_bicocca_2024/scientificcomputing_bicocca_2024
           git submodule update
 
       - name: Check Python version

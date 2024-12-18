@@ -10,5 +10,6 @@ BicoccaCoursePython2024
    BicoccaCoursePython2024.terza_lezione
    BicoccaCoursePython2024.quarta_lezione
    BicoccaCoursePython2024.Lesson_05
+   BicoccaCoursePython2024.Lesson_06
    BicoccaCoursePython2024.Lesson_08
    BicoccaCoursePython2024.Documentation

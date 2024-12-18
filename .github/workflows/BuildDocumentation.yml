@@ -7,6 +7,10 @@ on:
     branches:
       - deployment
 
+  push:
+    branches:
+      - Esercizi-FrancescoTurini
+      
   workflow_dispatch:
 
 
@@ -21,6 +25,10 @@ jobs:
       - name: Checkout code
         uses: actions/checkout@v4
         
+      - name: Checkout the submodules(Git_Exercises repo)
+        run: |
+          git submodule update
+
       - name: Check Python version
         run: python --version 
            

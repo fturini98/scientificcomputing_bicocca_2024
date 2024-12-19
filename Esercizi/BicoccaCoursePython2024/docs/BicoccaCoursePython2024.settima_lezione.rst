@@ -1,5 +1,5 @@
 BicoccaCoursePython2024.settima\_lezione
-======================================
+========================================
 
 The seventh lesson is about the functionalities of **Numba** and multiprocessing.
 

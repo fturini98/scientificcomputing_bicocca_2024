@@ -20,7 +20,12 @@ jobs:
     steps:
       - name: Checkout code
         uses: actions/checkout@v4
-        
+        with:
+          submodules: true
+      
+      - name: Find yml
+        run: ls Esercizi/Git_exercises/.github/workflows
+
       - name: Check Python version
         run: python --version 
            

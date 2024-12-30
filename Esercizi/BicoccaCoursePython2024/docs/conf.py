@@ -20,6 +20,7 @@ release = '0.0.1'
 
 extensions = [
     'nbsphinx', # For including jupyter notebook
+    'sphinx.ext.mathjax',
     'sphinx.ext.autodoc',    # Generates documentation from docstrings
     'sphinx.ext.napoleon',   # Supports Google-style and NumPy-style docstrings
     'sphinx.ext.viewcode',   # Links to the source code of functions

@@ -1,3 +1,4 @@
+[![Documentation](https://img.shields.io/badge/docs-published-brightgreen?label=Documentation%20and%20solved%20exercises%20(Francesco%20Turini))](https://fturini98.github.io/scientificcomputing_bicocca_2024)
 
 # Scientific Computing with Python
 

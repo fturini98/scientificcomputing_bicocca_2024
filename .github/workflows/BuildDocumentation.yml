@@ -7,30 +7,40 @@ on:
     branches:
       - deployment
 
+  workflow_dispatch:
+
+
 jobs:
   build:
     runs-on: ubuntu-latest
+    container:
+      image: dalibo/pandocker:stable
+
 
     steps:
       - name: Checkout code
         uses: actions/checkout@v4
-        
-      - name: Set up Python
-        uses: actions/setup-python@v4
         with:
-         python-version: "3.11.9" 
+          submodules: true
+      
+      - name: Find yml
+        run: ls Esercizi/Git_exercises/.github/workflows
+
+      - name: Check Python version
+        run: python --version 
            
       - name: Install dependencies
         run: |
           cd Esercizi/BicoccaCoursePython2024
-          pip install -e .
-          pip install sphinx sphinx_rtd_theme
+          pip install --break-system-packages -e .
+          cd docs
+          pip install --break-system-packages -r requirements_sphinx.txt
 
 
       - name: Build the documentation
         run: |
-          cd Esercizi/BicoccaCoursePython2024
-          cd docs
+          cd Esercizi/BicoccaCoursePython2024/docs
+          ln -s ../../SolvedExercises SolvedExercises
           sphinx-build -b html . _build/html
 
       - name: Deploy to GitHub Pages

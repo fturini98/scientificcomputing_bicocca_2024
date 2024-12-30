@@ -1,4 +1,4 @@
-Lesson 08
+Lesson 08: Test and Deployment
 =================================
 
 The last lesson is about building a package and then **testing** and deploying it.  
@@ -9,6 +9,20 @@ I've completed the exercises related to:
 
 Tests' Exercise (Q2: My own test)
 ---------------------------------
+
+Statement:
+~~~~~~~~~~~
+
+Q2: My own test
+^^^^^^^^^^^^^^^
+
+  - Pick a piece of python code that you like (your own PhD project, or take one of the exercises from this class). Implement a unit test and a regression test. 
+  - Put it under git version control, and write a github action that runs the tests at every commit.
+  - Edit the github options to make sure the code *cannot* be committed if the tests fail (that's a common thing for big projects with many collaborations, nobody is allowed to break the code)
+
+
+Solution:
+~~~~~~~~~~
 
 For the test exercise, I wrote a class (`TestBicoccaCoursePython2024 <https://github.com/fturini98/scientificcomputing_bicocca_2024/tree/deployment/Esercizi/BicoccaCoursePython2024/test/ottava_lezione_test.py>`_) with 4 methods:
 
@@ -33,6 +47,25 @@ If the code doesn't pass the tests, it's not possible to create a pull request o
 
 Deployment (Q1: I love pip)
 ---------------------------
+
+Statement:
+~~~~~~~~~~~
+
+Q1: I love pip 
+^^^^^^^^^^^^^^
+
+  - Take a piece of python code you wrote (for instance pick one of the exercises you've done for this class). 
+  - Turn it into a module
+  - Install it locally
+  - Deploy on pypi (only using the test-pypi server!)
+
+  .. note::
+        
+    Both the pypi and test-pypi server are public on the web! Don't compromise your research by putting up something your competitors can use and steal your idea before you've published a paper on it!!! 
+
+
+Solution:
+~~~~~~~~~~
 
 Since the package is built using a *project.toml* and a *setup.cfg* file, deploying it is straightforward:
 
@@ -63,14 +96,13 @@ Now the package is available `here <https://test.pypi.org/project/BicoccaCourseP
 Deployment to Test PyPI with Continuous Integration
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-Since the package is still in development, I manage deployment through continuous integration after a pull request to the **deployment** branch.  
-To pull to this branch, it is necessary to pass the following actions:
+Since the package is still in development, I manage deployment through continuous integration.
+It's possible to deploy it using a   **workflow_dispatch** on GitHub.
 
-- `Test Lezione8 <https://github.com/fturini98/scientificcomputing_bicocca_2024/tree/deployment/.github/workflows/Lezione8_tests.yml>`_: Ensures that all tests for the package pass.
+ .. note::
+    To enable the possibility of activate manually the deployment workfolw it's mandatory that the relative file yml is on the main branch.
 
-- `CheckTag <https://github.com/fturini98/scientificcomputing_bicocca_2024/tree/deployment/.github/workflows/CheckTag.yml>`_: Verifies that the current version has a tag.
-
-The workflow that manages this is defined in `DeploytoTestPyPI.yml <https://github.com/fturini98/scientificcomputing_bicocca_2024/tree/deployment/.github/workflows/DeploytoTestPyPI.yml>`_.  
+The workflow that manages the deployment is defined in `DeploytoTestPyPI.yml <https://github.com/fturini98/scientificcomputing_bicocca_2024/tree/deployment/.github/workflows/DeploytoTestPyPI.yml>`_.  
 To make it work properly, it is necessary to add the API token of Test PyPI in the GitHub secrets as follows:
 
 - **TEST_PYPI_USERNAME**: ``__token__``

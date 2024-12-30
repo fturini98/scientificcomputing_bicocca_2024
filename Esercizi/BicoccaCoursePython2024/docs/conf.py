@@ -19,10 +19,17 @@ release = '0.0.1'
 # https://www.sphinx-doc.org/en/master/usage/configuration.html#general-configuration
 
 extensions = [
+    'nbsphinx', # For including jupyter notebook
+    'sphinx.ext.mathjax',
     'sphinx.ext.autodoc',    # Generates documentation from docstrings
     'sphinx.ext.napoleon',   # Supports Google-style and NumPy-style docstrings
     'sphinx.ext.viewcode',   # Links to the source code of functions
 ]
+
+nbsphinx_execute = 'never'
+nbsphinx_allow_errors = True
+
+autodoc_member_order = 'groupwise'
 
 templates_path = ['_templates']
 exclude_patterns = ['_build', 'Thumbs.db', '.DS_Store']

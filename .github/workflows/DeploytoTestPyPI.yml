@@ -3,9 +3,7 @@ name: Deploy_to_Test_PyPI
 run-name: Deploy to Test PyPi
 
 on:
-    pull_request:
-        branches:
-            - deployment
+  workflow_dispatch:
 
 jobs:
   deploy:
